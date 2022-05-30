@@ -1,0 +1,55 @@
+<div class="page-wrapper bg-dark p-t-100 p-b-50">
+  <div class="wrapper wrapper--w900">
+    <div class="card card-6">
+      <div class="card-heading">
+        <h2 class="title">Add product</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="myform">
+          <div class=" form-row">
+            <div class="name">Title</div>
+            <div class="value">
+              <input class="input--style-6" type="text" name="title" formControlName="title">
+              <span [hidden]="title.valid || title.pristine">Title is required</span><br>
+              <span *ngIf="title.errors?.['minlength']"> minimum length is 10</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Description</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-6" type="text" name="description" formControlName="description">
+                <span *ngIf="description.errors?.['minlength']"> minimum length is 30</span>
+                <span [hidden]="description.valid || description.pristine">Description is required</span><br>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">ImageUrl</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-6" type="text" name="imageurl" formControlName="imageurl">
+                <span [hidden]="imageurl.valid || imageurl.pristine">Image is required</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Price</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-6" type="number" name="price" formControlName="price">
+                <span [hidden]="price.valid || price.pristine">Price is required</span>
+              </div>
+            </div>
+          </div>
+
+
+        </form>
+      </div>
+      <div class="card-footer">
+        <input type="button" value="Add Product" class="btn btn--radius-2 btn--blue-2" [disabled]="myform.invalid"
+          (click)="add(myform.value)">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<h1 class="text-center">product list</h1>
+
+<a [routerLink]="['/add-product']" class="btn btn-primary">Add Product</a>
+<br />
+<div class="container d-flex justify-content">
+  <div class="row">
+    <app-product-card *ngFor="let prod of prodList" [singleProd]="prod" (prodSelected)="selectProd($event)"
+      class="col-md-4" [showDetails]="true">
+    </app-product-card>
+  </div>
+</div>

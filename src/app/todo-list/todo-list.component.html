@@ -1,0 +1,57 @@
+<div class="container m-5 p-2 rounded mx-auto bg-light shadow">
+  <!-- App title section -->
+  <div class="row m-1 p-4">
+    <div class="col">
+      <div class="p-1 h1 text-primary text-center mx-auto display-inline-block">
+        <i class="fa fa-check bg-primary text-white rounded p-2"></i>
+        <u>My Todo-List</u>
+      </div>
+    </div>
+  </div>
+  <!-- Create todo section -->
+  <div class="row m-1 p-3">
+    <div class="col col-11 mx-auto">
+      <div class="row bg-white rounded shadow-sm p-2 add-todo-wrapper align-items-center justify-content-center">
+        <div class="col">
+          <input #todo class="form-control form-control-lg border-0 add-todo-input bg-transparent rounded" type="text"
+            placeholder="Add new ..">
+        </div>
+        <div class="col-auto px-0 mx-0 mr-2">
+          <button type="button" class="btn btn-primary" (click)="add(todo)">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-2 mx-4 border-black-25 border-bottom"></div>
+  <!-- View options section -->
+  <div class="row m-1 p-3">
+    <div class="col col-11 mx-auto">
+      <div class="row bg-white rounded shadow-sm p-2 add-todo-wrapper align-items-center justify-content-center">
+        <div class="col">
+          <input #todoFilter (keyup)="like(todoFilter.value)" class=" form-control form-control-lg border-0 add-todo-input
+            bg-transparent rounded" type="text" placeholder="Serach">
+        </div>
+      </div>
+      <label class="text-secondary my-2 p-0 px-1 view-opt-label due-date-label ">There are {{count}} todos</label>
+    </div>
+  </div>
+  <!-- Todo list section -->
+  <div class="row mx-1 px-5 pb-3 w-80">
+    <div class="col mx-auto">
+
+      <!-- Todo Item 2 -->
+      <div #todoList class="row px-3 align-items-center todo-item rounded d-block">
+
+
+        <div class="col px-1 m-1 d-flex align-items-center" *ngFor="let todo of filteredTodos">
+          <input type="text" class="form-control form-control-lg border-0 edit-todo-input bg-transparent rounded px-3"
+            readonly value="{{ todo.name }}" title="{{ todo.name }}" />
+
+          <button (click)="delete(todo.id)" class="fa  fa-trash-o text-danger btn m-0 p-0">Complete</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

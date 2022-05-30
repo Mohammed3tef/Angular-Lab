@@ -1,0 +1,15 @@
+
+      <ul>
+        <li *ngFor="let c of peopleByCountry" [ngSwitch]="c.country">
+          <span *ngSwitchCase="'US'" class="text-danger"> {{c.country}}</span>
+          <span *ngSwitchCase="'UK'" class="text-primary">{{c.country}}</span>
+          <span *ngSwitchDefault class="text-info">{{c.country}}</span>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let p of c.people">{{p.name}}</li>
+          </ul>
+        </li>
+      </ul>
+
+
+
+
